@@ -7,10 +7,10 @@ FPGA_USER=$(QUARTUS_USER)
 include ../../fpga.mk
 
 local-build:
-	tclsh ../top_system.tcl "$(INCLUDE)" "$(DEFINE)" "$(VSRC)" "$(BOARD)" "$(REVISION)"
+	tclsh ../top_system.tcl "$(INCLUDE)" "$(DEFINE)" "$(VSRC)" "$(BOARD)"
 
 clean: clean-all
-	@rm -rf *.json *.ys *.txt *.config *.log *.svf *.bit *.lpf
+	@rm -rf *.json *.ys *.txt *.config *.log *.svf *.bit
 
 clean-ip:
 	
