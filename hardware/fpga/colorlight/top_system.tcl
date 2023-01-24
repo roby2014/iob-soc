@@ -25,7 +25,7 @@ set yosys_script_handle [open $yosys_script "w"]
 puts $yosys_script_handle "read -define $DEFINE \n"
 puts $yosys_script_handle "verilog_defaults -add $INCLUDE_PATH \n"
 puts $yosys_script_handle "read_verilog $VSRC \n"
-puts $yosys_script_handle "synth_ecp5 -no-rw-check -top $PROJECT_NAME -json $PROJECT_NAME.json \n"
+puts $yosys_script_handle "synth_ecp5 -top $PROJECT_NAME -json $PROJECT_NAME.json \n"
 close $yosys_script_handle
 exec yosys -T $yosys_script -q -q -t -l "${PROJECT_NAME}_synthesis.log"
 
