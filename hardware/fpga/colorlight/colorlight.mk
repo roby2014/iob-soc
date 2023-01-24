@@ -1,8 +1,12 @@
 FPGA_OBJ=top_system.bit
 FPGA_LOG=colorlight.log
 
-FPGA_SERVER=$(TRELLIS_SERVER)
-FPGA_USER=$(TRELLIS_USER)
+FPGA_SERVER=$(COLORLIGHT_SERVER)
+FPGA_USER=$(COLORLIGHT_USER)
+
+#yosys cant infer iob-mem's dual port RAMs for now (only if using -no-rw-check)
+#so we force this setting to use single port 
+DEFINE+=$(defmacro)USE_SPRAM
 
 include ../../fpga.mk
 

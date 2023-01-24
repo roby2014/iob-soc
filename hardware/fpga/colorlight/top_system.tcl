@@ -32,7 +32,7 @@ exec yosys -T $yosys_script -q -q -t -l "${PROJECT_NAME}_synthesis.log"
 #------ Place & Route ------#
 puts "-> Synthesis done! Place & Route now\n"
 set pnr_arguments [dict get $EXTRA_PNR_ARGUMENTS $REVISION] ;# board+revision specific p&r arguments
-eval exec -ignorestderr nextpnr-ecp5 $pnr_arguments \
+eval exec -ignorestderr nextpnr-ecp5 $pnr_arguments --freq 25 \
     --json $PROJECT_NAME.json --textcfg $PROJECT_NAME.config \
     --lpf ${BOARD}_$REVISION.lpf --lpf-allow-unconstrained \
     -ql "${PROJECT_NAME}_pnr.log"

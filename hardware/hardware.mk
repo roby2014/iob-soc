@@ -17,6 +17,8 @@ include $(LIB_DIR)/hardware/iob_reg/hardware.mk
 #include MEM modules
 include $(MEM_DIR)/hardware/rom/iob_rom_sp/hardware.mk
 include $(MEM_DIR)/hardware/ram/iob_ram_dp_be/hardware.mk
+include $(MEM_DIR)/hardware/ram/iob_ram_sp_be/hardware.mk
+
 
 #CPU
 include $(PICORV32_DIR)/hardware/hardware.mk

@@ -12,7 +12,7 @@ DEVICE=LFE5U-25F-6BG256C
 #specify any conditions that prevent running this FPGA
 NORUN = 0
 
-FREQ=25000000 #25MHz
+BOARD_FREQ=25000000 #25MHz
 
 include ../colorlight.mk
 
