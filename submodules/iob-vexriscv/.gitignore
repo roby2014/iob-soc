@@ -1,0 +1,17 @@
+# Ignore generated files
+/*
+
+# Except:
+## Files:
+!/.gitignore
+!/.gitmodules
+!/.github
+!/config.mk
+!/Makefile
+!/README.md
+## Folders:
+!/hardware
+!/software
+/software/OS_build/*
+!/submodules
+/submodules/*/*

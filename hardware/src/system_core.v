@@ -51,20 +51,20 @@ module system
    wire [`RESP_W-1:0] cpu_d_resp;
    
    //instantiate the cpu
-   iob_picorv32 cpu
+   iob_VexRiscv cpu
        (
-        .clk (clk),
-        .rst (cpu_reset),
-        .boot (boot),
-        .trap (trap),
-        
+        .clk     (clk),
+        .rst     (cpu_reset),
+        .boot    (boot),
+        .trap    (trap),
+
         //instruction bus
-        .ibus_req (cpu_i_req),
-        .ibus_resp (cpu_i_resp),
-        
+        .ibus_req(cpu_i_req),
+        .ibus_resp(cpu_i_resp),
+
         //data bus
-        .dbus_req (cpu_d_req),
-        .dbus_resp (cpu_d_resp)
+        .dbus_req(cpu_d_req),
+        .dbus_resp(cpu_d_resp)
         );
 
 

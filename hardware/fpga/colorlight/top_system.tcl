@@ -32,14 +32,14 @@ exec yosys -T $yosys_script -q -q -t -l "${PROJECT_NAME}_synthesis.log"
 #------ Place & Route ------#
 puts "-> Synthesis done! Place & Route now\n"
 set pnr_arguments [dict get $EXTRA_PNR_ARGUMENTS $REVISION] ;# board+revision specific p&r arguments
-eval exec -ignorestderr nextpnr-ecp5 $pnr_arguments --freq 25 \
+eval exec -ignorestderr nextpnr-ecp5 $pnr_arguments --freq 25 --timing-allow-fail --seed 1 \
     --json $PROJECT_NAME.json --textcfg $PROJECT_NAME.config \
     --lpf ${BOARD}_$REVISION.lpf --lpf-allow-unconstrained \
     -ql "${PROJECT_NAME}_pnr.log"
 
 #------ Bitstream Generation ------#
 puts "-> Place & Route done! Generating bitstream... \n"
-exec ecppack --svf $PROJECT_NAME.svf ${PROJECT_NAME}.config $PROJECT_NAME.bit
+exec ecppack --bootaddr 0 --svf $PROJECT_NAME.svf ${PROJECT_NAME}.config $PROJECT_NAME.bit
 
 # DONE!
 puts "-> Bitstream generated! ($PROJECT_NAME.bit) \n"

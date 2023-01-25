@@ -1,7 +1,7 @@
 # IOb-SoC
 
 IOb-SoC is a System-on-Chip (SoC) template comprising an open-source RISC-V
-processor (picorv32), an internal SRAM memory subsystem, a UART (iob-uart), and
+processor (vexriscv), an internal SRAM memory subsystem, a UART (iob-uart), and
 an optional interface to an external memory. If the external memory interface is
 selected, an instruction L1 cache, a data L1 cache and a shared L2 cache are
 added to the system. The L2 cache communicates with a 3rd party memory

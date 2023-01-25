@@ -21,7 +21,7 @@ include $(MEM_DIR)/hardware/ram/iob_ram_sp_be/hardware.mk
 
 
 #CPU
-include $(PICORV32_DIR)/hardware/hardware.mk
+include $(VEXRISCV_DIR)/hardware/hardware.mk
 
 #CACHE
 include $(CACHE_DIR)/hardware/hardware.mk

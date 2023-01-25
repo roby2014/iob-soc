@@ -1,0 +1,39 @@
+name: CI
+
+# Set default shell as interactive (source ~/.bashrc)
+defaults:
+  run:
+    shell: bash -ieo pipefail {0}
+
+# Run only one instance of this workflow at a time
+# cancel-in-progress: stop running workflow and run latest instead
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+        - main
+  # Don't forget to require approval for all outside collaborators
+  pull_request:
+    branches: '*'
+  # Allow manual workflow runs
+  workflow_dispatch:
+
+jobs:
+  verilator:
+    runs-on: self-hosted
+    timeout-minutes: 30
+    # run even if previous job failed
+    if: ${{ !cancelled() }}
+    # run after indicated job
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+      - name: test-clean
+        run: make clean-all
+      - name: test-vexriscv
+        run: make vexriscv
