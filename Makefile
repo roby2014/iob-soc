@@ -92,7 +92,7 @@ endif
 
 fpga-build:
 	make fw-build BAUD=$(BOARD_BAUD) FREQ=$(BOARD_FREQ)
-	make -C $(BOARD_DIR) build
+	#make -C $(BOARD_DIR) build
 
 fpga-run: fpga-build
 	make -C $(BOARD_DIR) run TEST_LOG="$(TEST_LOG)"
