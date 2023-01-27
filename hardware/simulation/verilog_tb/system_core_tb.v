@@ -43,9 +43,16 @@ module system_tb;
 
   initial begin
 
+    // yosys-icarus simulation works a bit different from the others
+    // submodules vcd's do not get included in generated verilog
+    // so we have to to this here manually
+    `ifdef VCD
+    `ifdef YOSYS_SIM
     $dumpfile("system.vcd");
     $dumpvars(0, system_top);
-    
+    `endif
+    `endif
+
     //init cpu bus signals
     uart_valid = 0;
     uart_wstrb = 0;
