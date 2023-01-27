@@ -42,6 +42,10 @@ module system_tb;
   wire                    trap;
 
   initial begin
+
+    $dumpfile("system.vcd");
+    $dumpvars(0, system_top);
+    
     //init cpu bus signals
     uart_valid = 0;
     uart_wstrb = 0;
