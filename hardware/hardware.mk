@@ -44,6 +44,9 @@ INCLUDE+=$(incdir). $(incdir)$(INC_DIR) $(incdir)$(LIB_DIR)/hardware/include
 #HEADERS
 VHDR+=$(INC_DIR)/system.vh $(LIB_DIR)/hardware/include/iob_intercon.vh
 
+# Add boot rom verilog header
+VHDR+=boot_case.vh
+
 #axi wires to connect cache to external memory in system top
 VHDR+=m_axi_wire.vh
 m_axi_wire.vh:
@@ -75,6 +78,9 @@ system.v: $(SRC_DIR)/system_core.v
 # make and copy memory init files
 boot.hex: $(BOOT_DIR)/boot.bin
 	$(PYTHON_DIR)/makehex.py $< $(BOOTROM_ADDR_W) > $@
+
+boot_case.vh: boot.hex
+	../generate_rom.py $< $@
 
 firmware.hex: $(FIRM_DIR)/firmware.bin
 	$(PYTHON_DIR)/makehex.py $< $(FIRM_ADDR_W) > $@
