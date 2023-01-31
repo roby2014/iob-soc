@@ -3,7 +3,7 @@ ROOT_DIR:=../../..
 defmacro:=-D
 incdir:=-I
 
-SIMULATOR=yosys-icarus
+SIMULATOR=yosys-icarus-generic
 SIM_SERVER=$(IVSIM_SERVER)
 SIM_USER=$(IVSIM_USER)
 SIM_PROC=a.out
