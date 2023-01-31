@@ -15,9 +15,6 @@ DEFINE+=$(defmacro)YOSYS_SIM=1
 #simulator flags
 VLOG = iverilog -Wall -g2012 $(INCLUDE) $(DEFINE)
 
-#ECP5 source files
-ECP5_SRC = /usr/share/yosys/ecp5
-
 #generated verilog from yosys
 GENERATED_VERILOG = SYNTH.v
 
@@ -25,7 +22,7 @@ GENERATED_VERILOG = SYNTH.v
 comp: $(SIM_PROC)
 
 $(SIM_PROC): $(GENERATED_VERILOG)
-	$(VLOG) system_tb.v $(GENERATED_VERILOG) $(ECP5_SRC)/cells_bb.v -o $(SIM_PROC) -I $(ECP5_SRC) -l$(ECP5_SRC)/cells_sim.v
+	$(VLOG) system_tb.v $(GENERATED_VERILOG) -o $(SIM_PROC)
 
 $(GENERATED_VERILOG):
 	tclsh generate_yosys_verilog.tcl "$(INCLUDE)" "$(DEFINE)" "$(VSRC)" "$(GENERATED_VERILOG)"

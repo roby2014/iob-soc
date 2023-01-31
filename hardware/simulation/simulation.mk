@@ -42,7 +42,7 @@ DEFINE+=$(defmacro)FW_SIZE=$(FW_SIZE)
 TB_DIR:=$(HW_DIR)/simulation/verilog_tb
 
 #axi memory
-include $(AXI_DIR)/hardware/axiram/hardware.mk
+#include $(AXI_DIR)/hardware/axiram/hardware.mk
 
 VSRC+=system_top.v
 
