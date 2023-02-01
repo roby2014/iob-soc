@@ -32,6 +32,8 @@ hardware/simulation/*/*
 !hardware/simulation/verilator/*.cpp
 !hardware/simulation/yosys-icarus/*.tcl
 !hardware/simulation/yosys-icarus/*.md
+!hardware/simulation/yosys-icarus-generic/*.tcl
+!hardware/simulation/yosys-icarus-generic/*.md
 
 #fpga
 hardware/fpga/*/*/*
