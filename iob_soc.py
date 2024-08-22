@@ -648,6 +648,13 @@ def setup(py_params_dict):
             "dest_dir": "hardware/fpga/quartus/CYCLONEV-GT-DK",
             "iob_soc_params": params,
         },
+        {
+            "core_name": "iob_soc_colorlight_wrapper",
+            "instance_name": "iob_soc_colorlight_wrapper",
+            "instantiate": False,
+            "dest_dir": "hardware/fpga/lattice/COLORLIGHT_5A-75E",
+            "iob_soc_params": params,
+        },
     ]
     attributes_dict["sw_modules"] = [
         # Software modules
