@@ -26,7 +26,7 @@ let
     exec ${pkgs.libreoffice}/bin/soffice "$@"
   '';
 
-  yosys = import ./yosys.nix { inherit pkgs; };
+  yosys = import ./lib/scripts/yosys.nix { inherit pkgs; };
 in
 
 pkgs.mkShell {
@@ -47,7 +47,7 @@ pkgs.mkShell {
     python3Packages.scipy
     python3Packages.pyserial
     (texlive.combine { inherit (texlive) scheme-medium multirow lipsum catchfile nowidow enumitem placeins xltabular ltablex titlesec makecell datetime fmtcount comment textpos csquotes amsmath cancel listings hyperref biblatex; })
-    (callPackage ./riscv-gnu-toolchain.nix { })
+    (callPackage ./lib/scripts/riscv-gnu-toolchain.nix { })
     verible
     black
     llvmPackages_14.clangUseLLVM
